@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+section {
+  display: flex;
+  margin: auto;
+}
+
+.gallery {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+  flex-wrap: wrap;
+  min-width: 400px;
+  width: 100%;
+}
+
+.item {
+  height: 400px;
+  margin: 0 30px;
+  width: 260px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.city {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-130px);
+  transition: transform .35s;
+}
+
+.city:hover {
+  transform: translateZ(20px) rotateY(-80deg);
+}
+
+.city::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  bottom: 0;
+  box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+  transform-origin: 100% 100%;
+  transform: rotateX(90deg) translateY(130px);
+  transition: box-shadow .35s;
+}
+
+.movie:hover::after {
+  box-shadow: 20px -5px 50px rgba(0,0,0,0.3);
+}
+
+.image, .info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  backface-visibility: hidden;
+}
+
+.image {
+  transform: translateZ(130px);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.info {
+  transform: rotateY(90deg) translateZ(130px);
+  border: 1px solid #222;
+  font-size: .75em;
+}
+
+.item:nth-child(1) .image {
+  background-image: url('./imgs/sanfrancisco.jpg');
+}
+
+.item:nth-child(2) .image {
+  background-image: url('./imgs/chicago.jpg');
+}
+
+.item:nth-child(3) .image {
+  background-image: url('./imgs/newyork.jpg');
+}
