@@ -42,7 +42,7 @@ section {
 }
 
 .city:hover {
-  transform: translateZ(20px) rotateY(-80deg);
+  transform: translateZ(-120px) rotateY(-68deg);
 }
 
 .city::after {
@@ -73,22 +73,93 @@ section {
   transform: translateZ(130px);
   background-size: cover;
   background-repeat: no-repeat;
+  box-shadow: inset 0 0 50px rgba(255,255,255,0);
 }
+
+.city:hover .image {
+  box-shadow: inset 300px 0 50px rgba(255,255,255,.6);
+}
+
+.image, .info {
+  transition: box-shadow .35s;
+}
+
 
 .info {
+  display: flex;
   transform: rotateY(90deg) translateZ(130px);
-  border: 1px solid #222;
+  border: 1px solid;
   font-size: .75em;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
-.item:nth-child(1) .image {
+.info::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  bottom: 0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  transform-origin: 100% 100%;
+  transition: box-shadow .35s;
+}
+
+.info > header {
+  margin: auto;
+  padding: 15px;
+  position: relative;
+}
+
+.quote {
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4em;
+  letter-spacing: -1px;
+}
+
+.author {
+  font-size: 1.1em;
+  font-family: 'Rubik', sans-serif;
+}
+
+.float-quote {
+  position: absolute;
+  font-size: 10em;
+  color: rgba(0,0,0,0.1);
+  top: -5px;
+  left: 0px;
+}
+
+.chi .float-quote {
+  color: rgba(255,255,255,0.2);
+}
+
+.sf .info {
+  background: #b4c4ba;
+  color: #222;
+  border-color: rgba(155, 169, 160, .7);
+}
+
+.chi .info {
+  background: #252b28;
+  color: #fff;
+  border-color: #000;
+}
+
+.ny .info {
+  background: #d6ca9f;
+  color: #222;
+  border-color: rgba(162, 153, 119, .7);
+}
+
+.sf .image {
   background-image: url('./imgs/sanfrancisco.jpg');
 }
 
-.item:nth-child(2) .image {
+.chi .image {
   background-image: url('./imgs/chicago.jpg');
 }
 
-.item:nth-child(3) .image {
+.ny .image {
   background-image: url('./imgs/newyork.jpg');
 }
