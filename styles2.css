@@ -1,7 +1,7 @@
 .item {
   height: 300px;
   width: 300px;
-  perspective: 1000px;
+  perspective: 3000px;
   margin: 0 25px;
   position: relative;
 }
@@ -12,10 +12,11 @@
   transform-style: preserve-3d;
   transform: translateZ(-150px);
   transition: transform .35s;
+  transform-origin: top;
 }
 
 .album:hover {
-  transform: rotateX(90deg) translateZ(-100px);
+  transform: rotateX(90deg) translateZ(-140px);
 }
 
 .cover, .continue {
@@ -27,25 +28,138 @@
 }
 
 .cover {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   transform: translateZ(150px);
 }
 
 .continue {
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   transform: rotateX(-90deg) translateZ(150px);
-  font-size: .75em;
+  text-transform: uppercase;
 }
 
-.album:nth-child(1) .cover {
+.title {
+  font-size: 1.9em;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 15px;
+  color: #222;
+  box-shadow: 0 0px 0 #fff inset;
+  transition: box-shadow .25s;
+  transition-delay: .3s;
+  transition-timing-function: cubic-bezier(.3, .6, .3, 1);
+}
+
+.album:hover .title {
+  box-shadow: 0 70px 0 #fff inset;
+}
+
+.continue span {
+  opacity: 0;
+  top: -15px;
+  transition: opacity .35s, top .35s;
+  position: relative;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.album:hover .continue span {
+  opacity: 1;
+  top: 0px;
+}
+
+.continue span:first-child {
+  font-family: 'Roboto', sans-serif;
+  transition-delay: .2s;
+}
+
+.continue span:last-child {
+  font-family: 'Rubik', sans-serif;
+  transition-delay: .35s;
+}
+
+.underline {
+  opacity: 0;
+  position: relative;
+  transition: opacity .35s, left .35s;
+  transition-delay: .3s;
+  margin-left: 15px;
+  left: -15px;
+}
+
+.album:hover .underline {
+  opacity: 1;
+  left: 0px;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  border-top: 2px solid #fff;
+  width: 10px;
+  top: -5px;
+  transform: rotate(45deg) skew(-50deg);
+}
+
+.underline::before {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -4px;
+  border-bottom: 2px solid #fff;
+  width: 10px;
+  transform: rotate(-45deg) skew(50deg);
+}
+
+.item:nth-child(1) .cover {
   background-image: url('./imgs/greenland.jpg');
 }
-
-.album:nth-child(2) .cover {
-  background-image: url('./imgs/losangeles.jpg');
+.item:nth-child(1) .continue {
+  background: #2e4857;
+}
+.item:nth-child(1) .title {
+  color: #2e4857;
 }
 
-.album:nth-child(3) .cover {
+.item:nth-child(2) .cover {
+  background-image: url('./imgs/losangeles.jpg');
+}
+.item:nth-child(2) .continue {
+  background: #fde8af;
+}
+.item:nth-child(2) .title {
+  color: #fde8af;
+  box-shadow: 0 0px 0 #647a99 inset;
+}
+.item:nth-child(2) .album:hover .title {
+  box-shadow: 0 70px 0 #647a99 inset;
+}
+.item:nth-child(2) .view {
+  color: #647a99;
+}
+.item:nth-child(2) .underline::after,
+.item:nth-child(2) .underline::before {
+  border-color: #647a99;
+}
+
+.item:nth-child(3) .cover {
   background-image: url('./imgs/japan.jpg');
+}
+.item:nth-child(3) .continue {
+  background: #141819;
+}
+.item:nth-child(3) .title {
+  color: #141819;
 }
