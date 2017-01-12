@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+section {
+  display: flex;
+  margin: auto;
+}
+
+.gallery {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+  flex-wrap: wrap;
+  min-width: 400px;
+  width: 100%;
+}
