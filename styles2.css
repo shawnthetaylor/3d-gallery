@@ -1,0 +1,51 @@
+.item {
+  height: 300px;
+  width: 300px;
+  perspective: 1000px;
+  margin: 0 25px;
+  position: relative;
+}
+
+.album {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-150px);
+  transition: transform .35s;
+}
+
+.album:hover {
+  transform: rotateX(90deg) translateZ(-100px);
+}
+
+.cover, .continue {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+}
+
+.cover {
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateZ(150px);
+}
+
+.continue {
+  display: flex;
+  transform: rotateX(-90deg) translateZ(150px);
+  font-size: .75em;
+}
+
+.album:nth-child(1) .cover {
+  background-image: url('./imgs/greenland.jpg');
+}
+
+.album:nth-child(2) .cover {
+  background-image: url('./imgs/losangeles.jpg');
+}
+
+.album:nth-child(3) .cover {
+  background-image: url('./imgs/japan.jpg');
+}
